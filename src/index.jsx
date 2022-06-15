@@ -2,6 +2,7 @@
 
 import React from "react";
 import ReactDOM from "react-dom";
+import Container from "react-bootstrap/Container";
 
 //import default MovieView from "./components/main-view/main-view";
 //you can only export one item using the default keyword (without curly braces)
@@ -13,7 +14,11 @@ import "./index.scss";
 // Main component (will eventually use all the others)
 class MyFlixApplication extends React.Component {
   render() {
-    return <MainView />; //as opposed to <MainView></MainView> (if there are no nested elements inside)
+    return (
+      <Container>
+        <MainView />
+      </Container>
+    );
   }
 }
 
