@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
+import PropTypes from "prop-types";
+import { Form, Button, Card, Row, Col, Container } from "react-bootstrap";
+import { RegistrationView } from "../registration-view/registration-view";
 
 export function LoginView(props) {
   const [username, setUsername] = useState("");
@@ -14,27 +15,54 @@ export function LoginView(props) {
     props.onLoggedIn(username);
   };
 
+  const handleClick = () => {
+    return <RegistrationView />;
+  };
+
   return (
-    <Form>
-      <Form.Group controlId="formUsername">
-        <Form.Label>Username:</Form.Label>
-        <Form.Control
-          type="text"
-          onChange={(e) => setUsername(e.target.value)}
-        />
-      </Form.Group>
+    <Container>
+      <Row>
+        <Card>
+          <Card.Body>
+            <Card.Title>Login</Card.Title>
+            <Form>
+              <Form.Group controlId="formUsername">
+                <Form.Label>Username</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter Username"
+                  onChange={(e) => setUsername(e.target.value)}
+                />
+              </Form.Group>
 
-      <Form.Group controlId="formPassword">
-        <Form.Label>Password:</Form.Label>
-        <Form.Control
-          type="password"
-          onChange={(e) => setPassword(e.target.value)}
-        />
-      </Form.Group>
+              <Form.Group controlId="formPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  placeholder="Enter Password"
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </Form.Group>
+            </Form>
 
-      <Button variant="primary" type="submit" onClick={handleSubmit}>
-        Submit
-      </Button>
-    </Form>
+            <Button variant="info" type="submit" onClick={handleSubmit}>
+              Submit
+            </Button>
+            <Button
+              variant="outline-secondary"
+              type="button"
+              onClick={handleClick}
+            >
+              Register here
+            </Button>
+          </Card.Body>
+        </Card>
+      </Row>
+    </Container>
   );
 }
+
+LoginView.propTypes = {
+  username: PropTypes.string,
+  password: PropTypes.string,
+};
