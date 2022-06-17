@@ -2,10 +2,12 @@ import React from "react";
 import axios from "axios";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import PropTypes from "prop-types";
 
 import { LoginView } from "../login-view/login-view";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
+import { RegistrationView } from "../registration-view/registration-view";
 
 export class MainView extends React.Component {
   constructor() {
@@ -18,6 +20,7 @@ export class MainView extends React.Component {
     };
   }
 
+  // Fetching movie data
   componentDidMount() {
     axios
       .get("https://bolly-flix.herokuapp.com/movies")
@@ -31,19 +34,14 @@ export class MainView extends React.Component {
       });
   }
 
-  /* when a movie is clicked, this function is invoked and updates the state of the `selectedMovie` *property to that movie*/
-  setSelectedMovie(movie) {
+  setSelectedMovie(newSelectedMovie) {
     this.setState({
-      selectedMovie: movie,
+      selectedMovie: newSelectedMovie,
     });
   }
-
-  /* when a user successfully logs in, this method updates the `user` props in state to that particular user */
-  /* will be called when the user has successfully logged in */
+  /* When a user successfully logs in, this function updates the `user` property in state to that *particular user*/
   onLoggedIn(user) {
-    this.setState({
-      user,
-    });
+    this.setState({ user });
   }
 
   render() {
@@ -53,32 +51,42 @@ export class MainView extends React.Component {
       return <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />;
 
     // Before the movies have been loaded
-    if (movies.length === 0)
-      return (
-        <Row className="main-view justify-content-md-center">
-          {selectedMovie ? (
-            <Col md={8}>
-              <MovieView
-                movie={selectedMovie}
-                onBackClick={(newSelectedMovie) => {
+    if (movies.length === 0) {
+      return <div className="main-view" />;
+    }
+    return (
+      <Row className="main-view justify-content-md-center">
+        {selectedMovie ? (
+          <Col md={8}>
+            <MovieView
+              movie={selectedMovie}
+              onBackClick={(newSelectedMovie) => {
+                this.setSelectedMovie(newSelectedMovie);
+              }}
+            />
+          </Col>
+        ) : (
+          movies.map((movie) => (
+            <Col md={3}>
+              <MovieCard
+                key={movie._id}
+                movie={movie}
+                onMovieClick={(newSelectedMovie) => {
                   this.setSelectedMovie(newSelectedMovie);
                 }}
               />
             </Col>
-          ) : (
-            movies.map((movie) => (
-              <Col md={3}>
-                <MovieCard
-                  key={movie._id}
-                  movie={movie}
-                  onMovieClick={(newSelectedMovie) => {
-                    this.setSelectedMovie(newSelectedMovie);
-                  }}
-                />
-              </Col>
-            ))
-          )}
-        </Row>
-      );
+          ))
+        )}
+      </Row>
+    );
   }
 }
+
+MainView.propTypes = {
+  selectedMovie: PropTypes.func,
+  user: PropTypes.shape({
+    username: PropTypes.string,
+    password: PropTypes.string,
+  }),
+};
