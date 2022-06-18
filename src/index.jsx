@@ -1,7 +1,7 @@
 //bootstrapping React code
 
 import React from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 import Container from "react-bootstrap/Container";
 
 //import default MovieView from "./components/main-view/main-view";
@@ -25,5 +25,8 @@ class BollyFlixApplication extends React.Component {
 //finds the root of your app
 const container = document.getElementsByClassName("app-container")[0];
 
-//tells React to render your app in the root DOM element
-ReactDOM.render(React.createElement(MyFlixApplication), container);
+//creates a root element
+const root = ReactDOM.createRoot(container);
+
+//renders app in root DOM element
+root.render(<BollyFlixApplication />);
