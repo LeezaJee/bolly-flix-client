@@ -11,6 +11,8 @@ export function RegistrationView(props) {
   const [email, setEmail] = useState("");
   const [birthday, setBirthday] = useState("");
 
+  const { toggleLogin } = props;
+
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
@@ -40,7 +42,7 @@ export function RegistrationView(props) {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           required
-          placeholder="Enter a Username"
+          placeholder="Pick a Username"
         />
       </Form.Group>
 
@@ -51,17 +53,7 @@ export function RegistrationView(props) {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
-          minLength="8"
-        />
-      </Form.Group>
-
-      <Form.Group>
-        <Form.Label>Password:</Form.Label>
-        <Form.Control
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
+          placeholder="Pick a Password"
           minLength="8"
         />
       </Form.Group>
@@ -73,16 +65,18 @@ export function RegistrationView(props) {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
+          placeholder="Enter your E-Mail"
         />
       </Form.Group>
 
       <Form.Group>
-        <Form.Label>Birthday</Form.Label>
+        <Form.Label>Birthday:</Form.Label>
         <Form.Control
-          type="email"
+          type="birthday"
           value={birthday}
           onChange={(e) => setBirthday(e.target.value)}
           required
+          placeholder="Enter your Birthday"
         />
       </Form.Group>
 
