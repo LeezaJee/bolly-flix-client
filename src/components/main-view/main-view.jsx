@@ -1,8 +1,9 @@
 import React from "react";
-import axios from "axios";
+import axios from "axios"; // promise-based HTTP client for ajax fetching
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import PropTypes from "prop-types";
+import "./main-view.scss";
 
 import { LoginView } from "../login-view/login-view";
 import { MovieCard } from "../movie-card/movie-card";
@@ -20,25 +21,12 @@ export class MainView extends React.Component {
     };
   }
 
-  // Fetching movie data
-  componentDidMount() {
-    axios
-      .get("https://bolly-flix.herokuapp.com/movies")
-      .then((response) => {
-        this.setState({
-          movies: response.data,
-        });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
-
   setSelectedMovie(newSelectedMovie) {
     this.setState({
       selectedMovie: newSelectedMovie,
     });
   }
+
   /* When a user successfully logs in, this function updates the `user` property in state to that *particular user*/
   onLoggedIn(user) {
     this.setState({ user });
@@ -55,6 +43,7 @@ export class MainView extends React.Component {
       return <div className="main-view" />;
     }
     return (
+      //Container already applied in index.jsx. One row only because condition allows only one possibility to render
       <Row className="main-view justify-content-md-center">
         {selectedMovie ? (
           <Col md={8}>
@@ -80,6 +69,20 @@ export class MainView extends React.Component {
         )}
       </Row>
     );
+  }
+
+  // Fetching movie data
+  componentDidMount() {
+    axios
+      .get("https://bolly-flix.herokuapp.com/movies")
+      .then((response) => {
+        this.setState({
+          movies: response.data,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 }
 
