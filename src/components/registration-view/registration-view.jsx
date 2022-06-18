@@ -86,9 +86,14 @@ export function RegistrationView(props) {
         />
       </Form.Group>
 
-      <Button variant="primary" type="submit" onClick={handleSubmit}>
-        Submit
-      </Button>
+      <div className="mt-2">
+        <Button variant="info" type="submit" onClick={handleSubmit}>
+          Submit
+        </Button>
+        <Button variant="link" onClick={(e) => toggleLogin(e)}>
+          Login instead
+        </Button>
+      </div>
     </Form>
   );
 }
