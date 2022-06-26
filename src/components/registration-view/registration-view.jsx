@@ -35,7 +35,7 @@ export function RegistrationView(props) {
   return (
     <Form>
       <Form.Group>
-        <Form.Label>Username:</Form.Label>
+        <Form.Label id="username-label">Username:</Form.Label>
         <Form.Control
           type="text"
           value={username}
@@ -46,7 +46,7 @@ export function RegistrationView(props) {
       </Form.Group>
 
       <Form.Group>
-        <Form.Label>Password:</Form.Label>
+        <Form.Label id="password-label">Password:</Form.Label>
         <Form.Control
           type="password"
           value={password}
@@ -58,7 +58,7 @@ export function RegistrationView(props) {
       </Form.Group>
 
       <Form.Group>
-        <Form.Label>E-Mail:</Form.Label>
+        <Form.Label id="email-label">E-Mail:</Form.Label>
         <Form.Control
           type="email"
           value={email}
@@ -69,10 +69,15 @@ export function RegistrationView(props) {
       </Form.Group>
 
       <div className="mt-2">
-        <Button variant="info" type="submit" onClick={handleSubmit}>
-          Submit
+        <Button
+          id="submit-btn"
+          variant="info"
+          type="submit"
+          onClick={handleSubmit}
+        >
+          Register
         </Button>
-        <Button variant="link" onClick={(e) => toggleLogin(e)}>
+        <Button id="login-btn" variant="link" onClick={(e) => toggleLogin(e)}>
           Login instead
         </Button>
       </div>
