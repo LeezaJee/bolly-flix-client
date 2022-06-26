@@ -79,20 +79,6 @@ export class MainView extends React.Component {
     );
   }
 
-  // Fetching movie data
-  componentDidMount() {
-    axios
-      .get("https://bolly-flix.herokuapp.com/movies")
-      .then((response) => {
-        this.setState({
-          movies: response.data,
-        });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
-}
 
 MainView.propTypes = {
   selectedMovie: PropTypes.func,
