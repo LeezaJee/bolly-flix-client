@@ -9,7 +9,6 @@ export function RegistrationView(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
-  const [birthday, setBirthday] = useState("");
 
   const { toggleLogin } = props;
 
@@ -66,17 +65,6 @@ export function RegistrationView(props) {
           onChange={(e) => setEmail(e.target.value)}
           required
           placeholder="Enter your E-Mail"
-        />
-      </Form.Group>
-
-      <Form.Group>
-        <Form.Label>Birthday:</Form.Label>
-        <Form.Control
-          type="birthday"
-          value={birthday}
-          onChange={(e) => setBirthday(e.target.value)}
-          required
-          placeholder="Enter your Birthday"
         />
       </Form.Group>
 
