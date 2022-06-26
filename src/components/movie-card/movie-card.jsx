@@ -4,6 +4,8 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+import "./movie-card.scss";
+import { Container } from "react-bootstrap";
 
 export class MovieCard extends React.Component {
   render() {
@@ -12,10 +14,10 @@ export class MovieCard extends React.Component {
     return (
       <Row>
         <Col>
-          <Card border="info">
-            <Card.Img variant="top" src={movie.ImagePath} />
+          <Card id="movie-card" border="info">
+            <Card.Img variant="top" id="card-image" src={movie.ImagePath} />
             <Card.Body>
-              <Card.Title>{movie.Title}</Card.Title>
+              <Card.Title id="movie-title">{movie.Title}</Card.Title>
               <Card.Text>{movie.Description}</Card.Text>
               <Button onClick={() => onMovieClick(movie)} variant="info">
                 Open
