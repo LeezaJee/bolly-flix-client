@@ -38,6 +38,22 @@ export class MainView extends React.Component {
     localStorage.setItem("user", authData.user.Username);
     this.getMovies(authData.token);
   }
+
+  //fetch data from database
+  getMovies(token) {
+    axios
+      .get("https://bolly-flix.herokuapp.com/movies", {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((response) => {
+        // Assign the result to the state
+        this.setState({
+          movies: response.data,
+        });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
   render() {
