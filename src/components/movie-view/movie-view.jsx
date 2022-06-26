@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import "../movie-view/movie-view.scss";
 import { MovieCard } from "../movie-card/movie-card";
 
 export class MovieView extends React.Component {
@@ -10,18 +11,13 @@ export class MovieView extends React.Component {
 
     return (
       <Card className="movie-view">
-        <Card.Img
-          className="movie-poster"
-          variant="top"
-          src={movie.ImagePath}
-        />
+        <Card.Img id="movie-poster" variant="top" src={movie.ImagePath} />
         <Card.Body>
-          <Card.Text className="movie.title">Title:</Card.Text>
-          <Card.Title className="text-center movie-title">
+          <Card.Title className="text-center" id="movie-title">
             {movie.Title}
           </Card.Title>
-          <Card.Text className="movie-description">Description:</Card.Text>
-          <Card.Text className="text-center movie-description">
+
+          <Card.Text className="text-center" id="movie-description">
             {movie.Description}
           </Card.Text>
 
