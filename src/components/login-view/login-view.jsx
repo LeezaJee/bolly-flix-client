@@ -65,44 +65,46 @@ export function LoginView(props) {
       <Row className="justify-content-center login-view">
         <Card id="login-card">
           <Card.Body>
-            <Card.Title id="login-label">Login to BollyFlix</Card.Title>
+            <Card.Title id="login-label">
+              {<h3>Welcome to BollyFlix</h3>}
+            </Card.Title>
             {showRegister === false ? (
               <Form>
+                <h5 id="logIn">Log In Form</h5>
                 <Form.Group controlId="formUsername">
-                  <Form.Label id="username-label">Username</Form.Label>
+                  <Form.Label id="username">Username:</Form.Label>
                   <Form.Control
                     type="text"
-                    placeholder="Enter your Username"
+                    placeholder="Enter username"
+                    value={username}
                     onChange={(e) => setUsername(e.target.value)}
                   />
+                  {usernameErr && <p>{usernameErr}</p>}
                 </Form.Group>
 
                 <Form.Group controlId="formPassword">
-                  <Form.Label id="password-label">Password</Form.Label>
+                  <Form.Label id="password">Password</Form.Label>
                   <Form.Control
                     type="password"
-                    placeholder="Enter your Password"
+                    placeholder="Password"
+                    value={password}
                     onChange={(e) => setPassword(e.target.value)}
                   />
+                  {passwordErr && <p>{passwordErr}</p>}
                 </Form.Group>
 
-                <div className="mt-2">
-                  <Button
-                    id="submit-btn"
-                    variant="info"
-                    type="submit"
-                    onClick={handleSubmit}
-                  >
-                    Submit
-                  </Button>
-                  <Button
-                    id="register-btn"
-                    variant="link"
-                    onClick={handleClick}
-                  >
-                    Register
-                  </Button>
-                </div>
+                <Button
+                  id="submit-btn"
+                  variant="info"
+                  type="submit"
+                  onClick={handleSubmit}
+                >
+                  Submit
+                </Button>
+
+                <Button id="register-btn" variant="link" onClick={handleClick}>
+                  Register
+                </Button>
               </Form>
             ) : (
               <RegistrationView toggleLogin={handleClick} />
