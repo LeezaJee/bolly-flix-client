@@ -1,4 +1,8 @@
-
+#logoutBtn {
+  width: 150px;
+  height: 40px;
+  margin: 10px 20px 0 90%;
+}
 
 #username-label, #password-label, #email-label, #birthday-label {
   margin-top: 10px;
@@ -59,6 +63,10 @@
 #movie-view {
   height: 100vh;
   background: linear-gradient(#836fc6, #e7a5d7);
+}
+
+#movieCard {
+  margin-top: 5%;
 }
 
 #movie-title {
