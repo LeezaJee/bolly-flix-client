@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import axios from "axios";
 import { Form, Button, Card, Row, Col, Container } from "react-bootstrap";
 import { RegistrationView } from "../registration-view/registration-view";
-import axios from "axios";
+
 import "./login-view.scss";
 
 export function LoginView(props) {
@@ -22,6 +23,8 @@ export function LoginView(props) {
       .then((response) => {
         const data = response.data;
         props.onLoggedIn(data);
+        //when user logs in props.onLoggedIn(data) is passed to LoginView + triggers onLoggedIn(authData) in MainView
+        //this updates state with the logged in authData
       })
       .catch((e) => {
         console.log("There is no such user");
