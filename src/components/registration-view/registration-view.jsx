@@ -78,17 +78,21 @@ export function RegistrationView(props) {
   };
 
   return (
-    <Form>
-      <Form.Group>
-        <Form.Label id="username-label">Username:</Form.Label>
-        <Form.Control
-          type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-          placeholder="Pick a Username"
-        />
-      </Form.Group>
+    <Container className="registrationContainer" fluid>
+      <Row className="mt-5">
+        <Form>
+          <h5 id="signUp">Sign Up Form</h5>
+          <Form.Group controlId="formName" className="reg-form-inputs">
+            <Form.Label id="name-label">Name:</Form.Label>
+            <Form.Control
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+              placeholder="Enter your Name"
+            />
+            {nameErr && <p>{nameErr}</p>}
+          </Form.Group>
 
       <Form.Group>
         <Form.Label id="password-label">Password:</Form.Label>
