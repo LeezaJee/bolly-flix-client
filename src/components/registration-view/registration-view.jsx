@@ -94,43 +94,57 @@ export function RegistrationView(props) {
             {nameErr && <p>{nameErr}</p>}
           </Form.Group>
 
-      <Form.Group>
-        <Form.Label id="password-label">Password:</Form.Label>
-        <Form.Control
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-          placeholder="Pick a Password"
-          minLength="8"
-        />
-      </Form.Group>
+          <Form.Group controlId="formUsername" className="reg-form-inputs">
+            <Form.Label id="username-label">Username:</Form.Label>
+            <Form.Control
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+              placeholder="Choose a Username"
+            />
+            {usernameErr && <p>{usernameErr}</p>}
+          </Form.Group>
 
-      <Form.Group>
-        <Form.Label id="email-label">E-Mail:</Form.Label>
-        <Form.Control
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-          placeholder="Enter your E-Mail"
-        />
-      </Form.Group>
+          <Form.Group controlId="formPassword" className="reg-form-inputs">
+            <Form.Label id="password-label">Password:</Form.Label>
+            <Form.Control
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              placeholder="Choose a Password"
+            />
+            {passwordErr && <p>{passwordErr}</p>}
+          </Form.Group>
 
-      <div className="mt-2">
-        <Button
-          id="submit-btn"
-          variant="info"
-          type="submit"
-          onClick={handleSubmit}
-        >
-          Register
-        </Button>
-        <Button id="login-btn" variant="link" onClick={(e) => toggleLogin(e)}>
-          Login instead
-        </Button>
-      </div>
-    </Form>
+          <Form.Group controlId="Email" className="reg-form-inputs">
+            <Form.Label id="email-label">E-Mail:</Form.Label>
+            <Form.Control
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              placeholder="Enter your E-Mail"
+            />
+            {emailErr && <p>{emailErr}</p>}
+          </Form.Group>
+
+          <Button
+            id="submit-btn"
+            variant="info"
+            type="submit"
+            onClick={handleSubmit}
+          >
+            Register
+          </Button>
+
+          <Button id="login-btn" variant="link" onClick={(e) => toggleLogin(e)}>
+            Login instead
+          </Button>
+        </Form>
+      </Row>
+    </Container>
   );
 }
 
