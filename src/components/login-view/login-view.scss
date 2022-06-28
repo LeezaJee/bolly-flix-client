@@ -12,8 +12,21 @@ $font: "Rajdhani";
   opacity: 0.8;
 }
 
+#logIn {
+  margin-top: 40px;
+  text-decoration: overline;
+}
+
 #login-label {
   text-align: center;
+}
+
+#username {
+  margin-top: 10px;
+}
+
+#password {
+  margin-top: 10px;
 }
 
 #username-label {
