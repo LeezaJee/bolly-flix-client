@@ -12,7 +12,7 @@ export class MovieCard extends React.Component {
     const { movie, onMovieClick } = this.props; //movieData = prop name extracted from main-view.jsx
 
     return (
-      <Row>
+      <Row id="movieCard">
         <Col>
           <Card id="movie-card" border="info">
             <Card.Img variant="top" id="card-image" src={movie.ImagePath} />
