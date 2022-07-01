@@ -81,9 +81,8 @@ export function RegistrationView(props) {
     <Container className="registrationContainer" fluid>
       <Row className="mt-5">
         <Form>
-          <h5 id="signUp">Sign Up Form</h5>
           <Form.Group controlId="formName" className="reg-form-inputs">
-            <Form.Label id="name-label">Name:</Form.Label>
+            <Form.Label>Name:</Form.Label>
             <Form.Control
               type="text"
               value={name}
