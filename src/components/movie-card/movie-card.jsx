@@ -1,11 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
+import { Button, Card, Col, Row } from "react-bootstrap";
 import "./movie-card.scss";
-import { Container } from "react-bootstrap";
 
 export class MovieCard extends React.Component {
   render() {
@@ -14,12 +10,17 @@ export class MovieCard extends React.Component {
     return (
       <Row id="movieCard">
         <Col>
-          <Card id="movie-card" border="info">
+          <Card id="movie-card">
             <Card.Img variant="top" id="card-image" src={movie.ImagePath} />
             <Card.Body>
               <Card.Title id="movie-title">{movie.Title}</Card.Title>
               <Card.Text>{movie.Description}</Card.Text>
-              <Button onClick={() => onMovieClick(movie)} variant="info">
+              <Button
+                variant="info"
+                onClick={() => {
+                  onMovieClick(movie);
+                }}
+              >
                 Open
               </Button>
             </Card.Body>
