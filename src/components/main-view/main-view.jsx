@@ -17,29 +17,8 @@ export class MainView extends React.Component {
     // Initial state is set to null
     this.state = {
       movies: [],
-      selectedMovie: null,
       user: null,
     };
-  }
-
-  setSelectedMovie(newSelectedMovie) {
-    this.setState({
-      selectedMovie: newSelectedMovie,
-    });
-  }
-
-  onLoggedIn(authData) {
-    //authData = user + token
-    console.log(authData);
-    this.setState({
-      user: authData.user.Username, //username is saved in the user state
-    });
-
-    //auth information received from handleSubmit method (token and user) is saved in localStorage
-    localStorage.setItem("token", authData.token);
-    localStorage.setItem("user", authData.user.Username);
-    this.getMovies(authData.token); //this.getMovies(authData) is called to get the movies from API once the user is logged in
-    //this refers to the object itself, in this case, the MainView class
   }
 
   //fetch data from database
@@ -60,67 +39,6 @@ export class MainView extends React.Component {
       });
   }
 
-  onLoggedOut() {
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
-    this.setState({
-      user: null,
-    });
-  }
-
-  render() {
-    const { movies, selectedMovie, user } = this.state;
-    /* if there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView */
-
-    if (!user)
-      return (
-        <Col>
-          <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
-        </Col>
-      );
-    // Before the movies have been loaded
-    if (movies.length === 0) {
-      return <div className="main-view" />;
-    }
-    return (
-      //Container already applied in index.jsx. One row only because condition allows only one possibility to render
-
-      <Row className="main-view justify-content-md-center">
-        <Button
-          id="logoutBtn"
-          variant="info"
-          onClick={() => {
-            this.onLoggedOut();
-          }}
-        >
-          Logout
-        </Button>
-        {selectedMovie ? (
-          <Col md={8}>
-            <MovieView
-              movie={selectedMovie}
-              onBackClick={(newSelectedMovie) => {
-                this.setSelectedMovie(newSelectedMovie);
-              }}
-            />
-          </Col>
-        ) : (
-          movies.map((movie) => (
-            <Col md={3}>
-              <MovieCard
-                key={movie._id}
-                movie={movie}
-                onMovieClick={(newSelectedMovie) => {
-                  this.setSelectedMovie(newSelectedMovie);
-                }}
-              />
-            </Col>
-          ))
-        )}
-      </Row>
-    );
-  }
-
   componentDidMount() {
     let accessToken = localStorage.getItem("token"); //get the value of the token from localStorage
     //if access token is present, it means the user is already logged in and getMovies method can be called
@@ -131,6 +49,72 @@ export class MainView extends React.Component {
       this.getMovies(accessToken);
     }
   }
+
+  onLoggedIn(authData) {
+    //authData = user + token
+    console.log(authData);
+    this.setState({
+      user: authData.user.Username, //username is saved in the user state
+    });
+
+    //auth information received from handleSubmit method (token and user) is saved in localStorage
+    localStorage.setItem("token", authData.token);
+    localStorage.setItem("user", authData.user.Username);
+    this.getMovies(authData.token); //this.getMovies(authData) is called to get the movies from API once the user is logged in
+    //this refers to the object itself, in this case, the MainView class
+  }
+
+  onLoggedOut() {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    this.setState({
+      user: null,
+    });
+  }
+
+  render() {
+    const { movies, user } = this.state;
+
+    if (!user)
+      return (
+        <Row>
+          <Col>
+            <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
+          </Col>
+        </Row>
+      );
+    if (movies.length === 0) return <div className="main-view" />;
+
+    return (
+      <Router>
+        <Row className="main-view justify-content-md-center">
+          <Route
+            exact
+            path="/"
+            render={() => {
+              return movies.map((m) => (
+                <Col md={3} key={m._id}>
+                  <MovieCard movie={m} />
+                </Col>
+              ));
+            }}
+          />
+          <Route
+            path="/movies/:movieId"
+            render={({ match }) => {
+              return (
+                <Col md={8}>
+                  <MovieView
+                    movie={movies.find((m) => m._id === match.params.movieId)}
+                  />
+                </Col>
+              );
+            }}
+          />
+        </Row>
+      </Router>
+    );
+  }
 }
 
 MainView.propTypes = {
@@ -140,3 +124,5 @@ MainView.propTypes = {
     password: PropTypes.string,
   }),
 };
+
+export default MainView;
