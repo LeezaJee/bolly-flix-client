@@ -2,7 +2,7 @@
 
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Container from "react-bootstrap/Container";
+import { Container } from "react-bootstrap";
 
 //import default MovieView from "./components/main-view/main-view";
 //you can only export one item using the default keyword (without curly braces)
