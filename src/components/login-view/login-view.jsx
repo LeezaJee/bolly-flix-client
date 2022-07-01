@@ -66,11 +66,10 @@ export function LoginView(props) {
         <Card id="login-card">
           <Card.Body>
             <Card.Title id="login-label">
-              {<h3>Welcome to BollyFlix</h3>}
+              {<h3>Welcome to BollyFlix!</h3>}
             </Card.Title>
             {showRegister === false ? (
               <Form>
-                <h5 id="logIn">Log In Form</h5>
                 <Form.Group controlId="formUsername">
                   <Form.Label id="username">Username:</Form.Label>
                   <Form.Control
@@ -99,7 +98,7 @@ export function LoginView(props) {
                   type="submit"
                   onClick={handleSubmit}
                 >
-                  Submit
+                  Login
                 </Button>
 
                 <Button id="register-btn" variant="link" onClick={handleClick}>
