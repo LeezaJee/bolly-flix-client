@@ -1,44 +1,45 @@
-#name-label, #username-label, #password-label {
+#username-label, #password-label {
   margin-top: 10px;
 }
 
 #signUp {
   margin-bottom: 10px;
-  text-decoration: overline;
 }
 
-#email-label, #birthday-label {
+#email-label {
   margin-top: 10px;
 }
 
-#submit-btn {
+#register-btn {
   width: 100px;
-  margin: 20px 10px 0 0;
 }
 
 #login-btn {
-  margin: 20px 0 0;
+  margin: 25px 0 0;
+}
+
+body {
+  background: linear-gradient(#836fc6, #e7a5d7);
 }
 
 .loginContainer {
   height: 100vh;
-  background: linear-gradient(#836fc6, #e7a5d7);
 }
 
 #login-card {
   width: 50%;
   opacity: .8;
-  margin-top: 120px;
+  border-radius: 20px;
+  margin-top: 80px;
   font-family: Rajdhani;
 }
 
 #logIn {
   margin-top: 40px;
-  text-decoration: overline;
 }
 
 #login-label {
-  text-align: center;
+  text-align: justify;
 }
 
 #username, #password, #username-label, #password-label {
@@ -47,11 +48,11 @@
 
 #submit-btn {
   width: 100px;
-  margin: 20px 10px 0 0;
+  margin: 25px 10px 0 0;
 }
 
 #register-btn {
-  margin: 20px 0 0;
+  margin: 25px 0 0;
 }
 
 #movie-card {
