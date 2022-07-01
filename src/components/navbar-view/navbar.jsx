@@ -1,22 +1,45 @@
-import React, { useState } from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
-import Button from "react-bootstrap/Button";
-import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
+import {
+  Navbar,
+  Container,
+  Nav,
+  Form,
+  FormControl,
+  Button,
+} from "react-bootstrap";
 
-function ColorSchemesExample() {
+class NavBar extends Component {
+  render() {
+    const { onBackLog } = this.props;
     return (
-        <Navbar bg="dark" variant="dark">
-          <Container fluid>
-            <Navbar.Brand href="#">Bolly Flix Movies</Navbar.Brand>
-            <Nav className="me-auto">
-              <Nav.Link href="#home">Home</Nav.Link>
-              <Nav.Link href="#features">Profile</Nav.Link>
-              <Nav.Link href="#pricing">Logout</Nav.Link>
-            </Nav>
-          </Container>
-        </Navbar>
+      <Navbar sticky="top" bg="dark" variant="dark">
+        <Container>
+          <Navbar.Brand href="#home">Bolly Flix</Navbar.Brand>
+          <Nav className="me-auto">
+            <Nav.Link href="#movies">Movies</Nav.Link>
+            <Nav.Link href="#profile">Profile</Nav.Link>
+            <Nav.Link href="#logout" onClick={() => onBackLog()}>
+              Log Out
+            </Nav.Link>
+          </Nav>
+          <Form className="d-flex">
+            <FormControl
+              type="search"
+              placeholder="Search"
+              className="me-2"
+              aria-label="Search"
+            />
+            <Button variant="outline-success">Search</Button>
+          </Form>
+        </Container>
+      </Navbar>
+    );
+  }
+}
 
+export default NavBar;
 
+NavBar.propTypes = {
+  onBackLog: PropTypes.func.isRequired,
+};
