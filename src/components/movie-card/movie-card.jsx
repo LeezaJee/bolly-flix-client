@@ -1,11 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Button, Card, Col, Row } from "react-bootstrap";
+
+import { Link } from "react-router-dom";
 import "./movie-card.scss";
 
 export class MovieCard extends React.Component {
   render() {
-    const { movie, onMovieClick } = this.props; //movieData = prop name extracted from main-view.jsx
+    const { movie } = this.props; //movieData = prop name extracted from main-view.jsx
 
     return (
       <Row id="movieCard">
@@ -15,14 +17,9 @@ export class MovieCard extends React.Component {
             <Card.Body>
               <Card.Title id="movie-title">{movie.Title}</Card.Title>
               <Card.Text>{movie.Description}</Card.Text>
-              <Button
-                variant="info"
-                onClick={() => {
-                  onMovieClick(movie);
-                }}
-              >
-                Open
-              </Button>
+              <Link to={`/movies/${movie._id}`}>
+                <Button variant="link">Open</Button>
+              </Link>
             </Card.Body>
           </Card>
         </Col>
