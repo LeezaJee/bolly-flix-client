@@ -30,5 +30,3 @@ export function UserInfo({ email, name }) {
         </>
     )
 }
-
-export default UserInfo
