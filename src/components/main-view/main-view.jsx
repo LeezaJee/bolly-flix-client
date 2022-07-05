@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import axios from 'axios' // promise-based HTTP client for ajax fetching
 import { Container, Row, Col, Button } from 'react-bootstrap'
 import PropTypes from 'prop-types'
-import { Navbar } from '../navbar/navbar'
+import { NavbarView } from '../navbar-view/navbar-view'
 import { LoginView } from '../login-view/login-view'
 import { MovieCard } from '../movie-card/movie-card'
 import { MovieView } from '../movie-view/movie-view'
@@ -81,13 +81,9 @@ export class MainView extends React.Component {
         return (
             <Router>
                 <Row>
-                    <Navbar
-                        onBackLog={() => {
-                            this.onLoggedOut()
-                        }}
-                        user={user}
-                    />
+                    <NavbarView user={user} />
                 </Row>
+
                 <Container>
                     <Row className="main-view justify-content-md-center">
                         {/*HomeRoute*/}
