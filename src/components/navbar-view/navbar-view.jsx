@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import './navbar-view.scss'
 
 export function NavbarView({ user }) {
-    function onLoggedOut() {
+    const onLoggedOut = () => {
         localStorage.clear()
         window.open('/', '_self')
     }
@@ -34,16 +34,15 @@ export function NavbarView({ user }) {
                         )}
                     </Nav>
                     {isAuth() && (
-                        <Button variant="link" onClick={this.onLoggedOut}>
+                        <Button
+                            variant="link"
+                            onClick={() => {
+                                onLoggedOut()
+                            }}
+                        >
                             Logout
                         </Button>
                     )}
-                    {!isAuth() && (
-                        <Link to="/" className="nav-link">
-                            Login
-                        </Link>
-                    )}
-                    {!isAuth() && <Nav.Link href="/register">Sign-Up</Nav.Link>}
                 </Navbar.Collapse>
             </Container>
         </Navbar>
