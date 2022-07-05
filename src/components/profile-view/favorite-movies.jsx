@@ -4,7 +4,7 @@ import { Col, Row, Figure, Button, Card } from 'react-bootstrap'
 import axios from 'axios'
 import './profile-view.scss'
 
-function FavoriteMovies({ favoriteMovieList }) {
+export function FavoriteMovies({ favoriteMovieList }) {
     const removeFav = (id) => {
         let token = localStorage.getItem('token')
         let url = `https://bolly-flix.herokuapp.com/users/${localStorage.getItem(
@@ -58,5 +58,3 @@ function FavoriteMovies({ favoriteMovieList }) {
         </Card>
     )
 }
-
-export default FavoriteMovies
