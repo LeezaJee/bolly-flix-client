@@ -14,29 +14,17 @@ export function GenreView(props) {
                     <h5 className="label">Description</h5>
                     <p className="value">{genre.Description}</p>
                 </Card.Body>
+                <Button
+                    className="mt-1"
+                    variant="info"
+                    type="button"
+                    onClick={() => {
+                        onBackClick()
+                    }}
+                >
+                    Back
+                </Button>
             </Card>
-            <Card>
-                <Card.Body>
-                    <h5 className="director-movies">Movies</h5>
-                    <Row>
-                        {movies.map((m) => (
-                            <Col xs={12} md={6} lg={4} key={m._id}>
-                                <MovieCard movie={m} />
-                            </Col>
-                        ))}
-                    </Row>
-                </Card.Body>
-            </Card>
-            <Button
-                className="mt-3"
-                variant="success"
-                type="button"
-                onClick={() => {
-                    onBackClick()
-                }}
-            >
-                Back
-            </Button>
         </>
     )
 }

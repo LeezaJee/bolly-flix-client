@@ -174,7 +174,15 @@ body {
 
 #favorites {
   text-align: center;
-  justify-content: center;
+}
+
+.genre-name {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.label {
+  text-decoration: underline;
 }
 
 #navbar {
