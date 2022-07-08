@@ -46882,9 +46882,7 @@ MovieView.propTypes = {
             Bio: (0, _propTypesDefault.default).string,
             Birthday: (0, _propTypesDefault.default).instanceOf(Date),
             DeathYear: (0, _propTypesDefault.default).instanceOf(Date)
-        }),
-        Actors: (0, _propTypesDefault.default).arrayOf((0, _propTypesDefault.default).string),
-        Featured: (0, _propTypesDefault.default).bool
+        })
     }).isRequired,
     onBackClick: (0, _propTypesDefault.default).func.isRequired
 };
