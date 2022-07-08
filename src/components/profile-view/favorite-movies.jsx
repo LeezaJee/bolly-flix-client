@@ -1,31 +1,20 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Col, Row, Figure, Button, Card } from 'react-bootstrap'
-import axios from 'axios'
 import './profile-view.scss'
 
-export function FavoriteMovies({ favoriteMovieList }) {
-    const removeFav = (id) => {
-        let token = localStorage.getItem('token')
-        let url = `https://bolly-flix.herokuapp.com/users/${localStorage.getItem(
-            'user'
-        )}/movies${id}`
-        axios.delete(url, {
-            headers: { Authorization: `Bearer ${token}` },
-        })
-    }
-
+export function FavoriteMovies({ favoriteMoviesList, removeFav }) {
     return (
         <Card>
             <Card.Body>
                 <Row>
                     <Col xs={12}>
-                        <h4>Favorite Movies</h4>
+                        <h4 id="favorites">Your Favorite Movies</h4>
                     </Col>
                 </Row>
 
                 <Row>
-                    {favoriteMovieList.map(({ ImagePath, Title, _id }) => {
+                    {favoriteMoviesList.map((movie) => {
                         return (
                             <Col
                                 xs={12}
@@ -37,18 +26,21 @@ export function FavoriteMovies({ favoriteMovieList }) {
                                 <Figure>
                                     <Link to={`/movies/${_id}`}>
                                         <Figure.Image
-                                            src={ImagePath}
-                                            alt={Title}
+                                            src={movie.ImagePath}
+                                            crossOrigin="true"
+                                            alt={movie.Title}
                                         />
-                                        <Figure.Caption>{Title}</Figure.Caption>
+                                        <Figure.Caption>
+                                            {movie.Title}
+                                        </Figure.Caption>
                                     </Link>
                                 </Figure>
 
                                 <Button
-                                    variant="info"
-                                    onClick={() => removeFav(_id)}
+                                    variant="outline-danger"
+                                    onClick={() => removeFav(movie._id)}
                                 >
-                                    Remove
+                                    Remove from Favorites
                                 </Button>
                             </Col>
                         )
