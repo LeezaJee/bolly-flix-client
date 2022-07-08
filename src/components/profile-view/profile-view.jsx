@@ -1,52 +1,135 @@
 import React, { useEffect, useState } from 'react'
-import PropTypes from 'prop-types'
 import axios from 'axios'
 import { Container, Button, Col, Row, Card } from 'react-bootstrap'
-import { UserInfo } from './user-info'
-import { FavoriteMovies } from './favorite-movies'
-import { UpdateUser } from './update-user'
 import './profile-view.scss'
 
-export function ProfileView({ movies }) {
-    const [user, setUser] = useState({
-        Username: '',
-        Email: '',
-        FavoriteMovies: [],
-    })
+import { UserData } from './user-data'
+import { FavoriteMovies } from './favorite-movies'
+import { UpdatedUser } from './update-user'
 
-    const favoriteMovieList = movies.filter((movie) => {
-        return user.FavoriteMovies.includes(movies._id)
-    })
+export function ProfileView(props) {
+    const [userdata, setUserdata] = useState({})
+    const [updatedUser, setUpdatedUser] = useState({})
+    const [favoriteMoviesList, setFavoriteMoviesList] = useState([])
+
+    let token = localStorage.getItem('token')
+    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
+
+    const getUserData = (cancelToken, username) => {
+        axios
+            .get(`https://bolly-flix.herokuapp.com/users/${username}`, {
+                cancelToken: cancelToken,
+            })
+            .then((response) => {
+                setUserdata(response.data)
+                setUpdatedUser(response.data)
+                setFavoriteMoviesList(
+                    props.movies.filter((m) =>
+                        response.data.FavoriteMovies.includes(m._id)
+                    )
+                )
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }
 
     useEffect(() => {
-        let isMounted = true
-        isMounted && getUser()
+        let source = axios.CancelToken.source()
+
+        if (token !== null) {
+            getUserData(source.token, props.user)
+        } else {
+            console.log('Not Authorized')
+        }
+
         return () => {
-            isMounted = false
+            source.cancel()
         }
     }, [])
 
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        axios
+            .put(
+                `https://bolly-flix.herokuapp.com/users/${userdata.Username}`,
+                updatedUser
+            )
+            .then((response) => {
+                setUserdata(response.data)
+                alert('Profile updated')
+            })
+            .catch((e) => {
+                console.log(e)
+            })
+    }
+
+    const handleUpdate = (e) => {
+        setUpdatedUser({
+            ...updatedUser,
+            [e.target.name]: e.target.value,
+        })
+    }
+
+    const deleteProfile = (e) => {
+        axios
+            .delete(
+                `https://bolly-flix.herokuapp.com/users/${userdata.Username}`
+            )
+            .then((response) => {
+                alert('Your profile has beeen deleted')
+                localStorage.removeItem('user')
+                localStorage.removeItem('token')
+
+                window.open('/', '_self')
+            })
+            .catch((e) => {
+                console.log(e)
+            })
+    }
+
+    const removeFav = (id) => {
+        axios
+            .delete(
+                `https://bolly-flix.herokuapp.com/users/${userdata.Username}/movies/${id}`
+            )
+            .then(() => {
+                // Change state of favoriteMovieList to render component
+                setFavoriteMoviesList(
+                    favoriteMoviesList.filter((movie) => movie._id != id)
+                )
+            })
+            .catch((e) => {
+                console.log(e)
+            })
+    }
+
     return (
-        <Container>
+        <Container fluid>
             <Row>
-                <Col xs={12} sm={4}>
-                    <Card>
-                        <Card.Body>
-                            <UserInfo name={user.Username} email={user.Email} />
-                        </Card.Body>
-                    </Card>
+                <Col xs={12} sm={6}>
+                    {/* Display userdata */}
+                    <UserData userdata={userdata} />
                 </Col>
 
-                <Col xs={12} sm={8}>
+                <Col xs={12} sm={6}>
                     <Card>
                         <Card.Body>
-                            <UpdateUser user={user} setUser={setUser} />
+                            <UpdatedUser
+                                userdata={userdata}
+                                handleSubmit={handleSubmit}
+                                handleUpdate={handleUpdate}
+                                deleteProfile={deleteProfile}
+                            />
                         </Card.Body>
                     </Card>
                 </Col>
             </Row>
 
-            <FavoriteMovies favoriteMovieList={favoriteMovieList} />
+            <FavoriteMovies
+                favoriteMoviesList={favoriteMoviesList}
+                removeFav={removeFav}
+            />
         </Container>
     )
 }
