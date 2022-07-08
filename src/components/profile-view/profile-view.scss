@@ -1,3 +1,5 @@
+$font: 'Rajdhani';
+
 .fav-movie {
     margin-bottom: 15px;
     figure {
@@ -23,5 +25,31 @@
 }
 
 .card {
-    margin-bottom: 50px;
+    font-family: $font;
+    margin-bottom: 40px;
+    margin-top: 30px;
+}
+
+#details {
+    margin-top: 20px;
+    text-align: center;
+    text-decoration: underline;
+}
+
+#back-btn {
+    margin-left: -3px;
+}
+
+#submit {
+    margin-top: 10px;
+    margin-right: 298px;
+}
+
+#delete-btn {
+    margin-top: 10px;
+}
+
+#favorites {
+    justify-content: center;
+    text-align: center;
 }
