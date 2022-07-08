@@ -224,6 +224,7 @@ export class MainView extends React.Component {
                                                 ).Genre
                                             }
                                             onBackClick={() => history.goBack()}
+                                            movies={movies}
                                         />
                                     </Col>
                                 )
