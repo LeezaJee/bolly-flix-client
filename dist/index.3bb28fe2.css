@@ -96,6 +96,12 @@ body {
   margin-left: 130px;
 }
 
+#back {
+  margin-left: 450px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
 body {
   padding-top: 60px;
   padding-bottom: 20px;
@@ -112,8 +118,6 @@ body {
   height: 40px;
   margin: 10px 20px 0 90%;
 }
-
-
 
 .fav-movie {
   margin-bottom: 15px;
@@ -144,7 +148,41 @@ body {
 }
 
 .card {
-  margin-bottom: 50px;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  font-family: Rajdhani;
+}
+
+#details {
+  text-align: center;
+  margin-top: 20px;
+  text-decoration: underline;
+}
+
+#back-btn {
+  margin-left: -3px;
+}
+
+#submit {
+  margin-top: 10px;
+  margin-right: 298px;
+}
+
+#delete-btn {
+  margin-top: 10px;
+}
+
+#favorites {
+  text-align: center;
+  justify-content: center;
+}
+
+#navbar {
+  font-family: Rajdhani;
+}
+
+.nav-link {
+  margin-top: 1.5px;
 }
 
 .my-flix {

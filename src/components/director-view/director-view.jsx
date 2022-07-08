@@ -1,6 +1,5 @@
 import React from 'react'
 import { Container, Row, Col, Button } from 'react-bootstrap'
-import { NavbarView } from '../navbar-view/navbar-view'
 
 export class DirectorView extends React.Component {
     render() {
@@ -8,9 +7,6 @@ export class DirectorView extends React.Component {
         return (
             <>
                 <Container>
-                    <Row>
-                        <NavbarView />
-                    </Row>
                     <Row className="movie-director">
                         <Button
                             id="return-button"
@@ -26,12 +22,12 @@ export class DirectorView extends React.Component {
                             <h5 className="label">Birth: </h5>
                         </Col>
                         <Col>
-                            <span className="value">{movie.director.name}</span>
+                            <span className="value">{movie.Director.Name}</span>
 
-                            <span className="value">{movie.director.bio}</span>
+                            <span className="value">{movie.Director.Bio}</span>
 
                             <span className="value">
-                                {movie.director.birth}
+                                {movie.Director.Birth}
                             </span>
                         </Col>
                         <Button
