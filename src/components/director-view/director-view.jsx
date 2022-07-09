@@ -1,45 +1,32 @@
 import React from 'react'
-import { Container, Row, Col, Button } from 'react-bootstrap'
+import { Container, Row, Col, Button, Card } from 'react-bootstrap'
 
 export class DirectorView extends React.Component {
     render() {
         const { movie, onBackClick } = this.props
         return (
             <>
-                <Container>
-                    <Row className="movie-director">
-                        <Button
-                            id="return-button"
-                            onClick={() => {
-                                onBackClick()
-                            }}
-                        >
-                            Back
-                        </Button>
-                        <Col>
-                            <h4 className="label">Director: </h4>
-                            <h5 className="label">Bio: </h5>
-                            <h5 className="label">Birth: </h5>
-                        </Col>
-                        <Col>
-                            <span className="value">{movie.Director.Name}</span>
-
-                            <span className="value">{movie.Director.Bio}</span>
-
-                            <span className="value">
-                                {movie.Director.Birth}
-                            </span>
-                        </Col>
-                        <Button
-                            variant="info"
-                            onClick={() => {
-                                onBackClick(null)
-                            }}
-                        >
-                            Back
-                        </Button>
-                    </Row>
-                </Container>
+                <h1 className="director-label">{movie.Director.Name}</h1>
+                <Card>
+                    <Card.Body>
+                        <h5 className="label">Bio:</h5>
+                        <p className="value">{movie.Director.Bio}</p>
+                    </Card.Body>
+                    <Card.Body>
+                        <h5 className="label">Birth:</h5>
+                        <p className="value">{movie.Director.Birth}</p>
+                    </Card.Body>
+                    <Button
+                        className="mt-1"
+                        variant="info"
+                        type="button"
+                        onClick={() => {
+                            onBackClick()
+                        }}
+                    >
+                        Back
+                    </Button>
+                </Card>
             </>
         )
     }
