@@ -162,7 +162,7 @@ export class MainView extends React.Component {
 
                         {/*DirectorRoute*/}
                         <Route
-                            path="/director/:name"
+                            path="/director/:Name"
                             render={({ match, history }) => {
                                 if (!user)
                                     return (
