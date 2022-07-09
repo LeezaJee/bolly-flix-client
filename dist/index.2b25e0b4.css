@@ -1,0 +1,94 @@
+#logoutBtn {
+  width: 150px;
+  height: 40px;
+  margin: 10px 20px 0 90%;
+}
+
+#username-label, #password-label, #email-label, #birthday-label {
+  margin-top: 10px;
+}
+
+#submit-btn {
+  width: 100px;
+  margin: 20px 10px 0 0;
+}
+
+#login-btn {
+  margin: 20px 0 0;
+}
+
+.loginContainer {
+  height: 100vh;
+  background: linear-gradient(#836fc6, #e7a5d7);
+}
+
+#login-card {
+  width: 50%;
+  opacity: .8;
+  margin-top: 120px;
+  font-family: Rajdhani;
+}
+
+#login-label {
+  text-align: center;
+}
+
+#username-label, #password-label {
+  margin-top: 10px;
+}
+
+#submit-btn {
+  width: 100px;
+  margin: 20px 10px 0 0;
+}
+
+#register-btn {
+  margin: 20px 0 0;
+}
+
+#movie-card {
+  font-family: Rajdhani;
+}
+
+#card-image {
+  width: 100%;
+  height: auto;
+}
+
+#movie-title {
+  font-size: x-large;
+  font-weight: 800;
+}
+
+#movie-view {
+  height: 100vh;
+  background: linear-gradient(#836fc6, #e7a5d7);
+}
+
+#movieCard {
+  margin-top: 5%;
+}
+
+#movie-title {
+  margin-top: 20px;
+  font-family: Rajdhani;
+  font-size: x-large;
+  font-weight: 800;
+}
+
+#movie-description {
+  margin-top: 30px;
+  margin-bottom: 40px;
+  font-family: Rajdhani;
+}
+
+#movie-poster {
+  width: 70%;
+  margin-left: 130px;
+}
+
+.my-flix {
+  color: #4682b4;
+}
+
+/*# sourceMappingURL=index.2b25e0b4.css.map */

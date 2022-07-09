@@ -1,0 +1,205 @@
+.my-flix {
+  color: #4682b4;
+}
+
+#navbar {
+  font-family: Rajdhani;
+}
+
+.nav-link {
+  margin-top: 1.5px;
+}
+
+#username-label, #password-label {
+  margin-top: 10px;
+}
+
+#signUp {
+  margin-bottom: 10px;
+}
+
+#email-label {
+  margin-top: 10px;
+}
+
+#register-btn {
+  width: 100px;
+}
+
+#login-btn {
+  margin: 25px 0 0;
+}
+
+body {
+  background: linear-gradient(#836fc6, #e7a5d7);
+}
+
+.loginContainer {
+  height: 100vh;
+}
+
+#login-card {
+  width: 60%;
+  opacity: .8;
+  border-radius: 20px;
+  margin-top: 110px;
+  font-family: Rajdhani;
+}
+
+#logIn {
+  margin-top: 40px;
+}
+
+#login-label {
+  text-align: justify;
+}
+
+#username, #password, #username-label, #password-label {
+  margin-top: 10px;
+}
+
+#submit-btn {
+  width: 100px;
+  margin: 25px 10px 0 0;
+}
+
+#register-btn {
+  margin: 25px 0 0;
+}
+
+#movie-card {
+  font-family: Rajdhani;
+}
+
+#card-image {
+  width: 100%;
+  height: auto;
+}
+
+#movie-title {
+  font-size: x-large;
+  font-weight: 800;
+}
+
+#movie-view {
+  height: 100vh;
+  background: linear-gradient(#836fc6, #e7a5d7);
+}
+
+#movieCard {
+  margin-top: 5%;
+}
+
+#movie-title {
+  margin-top: 20px;
+  font-family: Rajdhani;
+  font-size: x-large;
+  font-weight: 800;
+}
+
+#movie-description {
+  margin-top: 30px;
+  margin-bottom: 40px;
+  font-family: Rajdhani;
+}
+
+#movie-poster {
+  width: 70%;
+  margin-left: 130px;
+}
+
+#back {
+  margin-left: 450px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.fav-movie {
+  margin-bottom: 15px;
+}
+
+.fav-movie figure {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.fav-movie figure img {
+  height: 400px;
+  margin: auto;
+  display: block;
+}
+
+.fav-movie figure figcaption {
+  text-align: center;
+}
+
+.fav-movie button.btn {
+  margin: auto;
+  display: block;
+}
+
+.card {
+  margin-top: 30px;
+  margin-bottom: 40px;
+  font-family: Rajdhani;
+}
+
+#details {
+  text-align: center;
+  margin-top: 20px;
+  text-decoration: underline;
+}
+
+#back-btn {
+  margin-left: -3px;
+}
+
+#submit {
+  margin-top: 10px;
+  margin-right: 298px;
+}
+
+#delete-btn {
+  margin-top: 10px;
+}
+
+#favorites {
+  text-align: center;
+}
+
+.genre-name {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.label {
+  text-decoration: underline;
+}
+
+.director-label {
+  text-align: center;
+  margin-top: 20px;
+}
+
+body {
+  padding-top: 60px;
+  padding-bottom: 20px;
+}
+
+@media (max-width: 979px) {
+  body {
+    padding-top: 0;
+  }
+}
+
+#logoutBtn {
+  width: 150px;
+  height: 40px;
+  margin: 10px 20px 0 90%;
+}
+
+/*# sourceMappingURL=index.ce1d6491.css.map */

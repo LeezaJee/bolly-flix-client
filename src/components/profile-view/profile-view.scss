@@ -1,0 +1,68 @@
+$font: 'Rajdhani';
+
+.fav-movie {
+    margin-bottom: 15px;
+    figure {
+        position: relative;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        margin: auto;
+        width: 100%;
+        img {
+            display: block;
+            height: 400px;
+            margin: auto;
+        }
+        figcaption {
+            text-align: center;
+        }
+    }
+    button.btn {
+        display: block;
+        margin: auto;
+    }
+}
+
+.card {
+    font-family: $font;
+    margin-bottom: 40px;
+    margin-top: 30px;
+}
+
+#details {
+    margin-top: 20px;
+    text-align: center;
+    text-decoration: underline;
+}
+
+#back-btn {
+    margin-left: -3px;
+}
+
+#submit {
+    margin-top: 10px;
+    margin-right: 298px;
+}
+
+#delete-btn {
+    margin-top: 10px;
+}
+
+#favorites {
+    text-align: center;
+}
+
+.genre-name {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.label {
+    text-decoration: underline;
+}
+
+.director-label {
+    text-align: center;
+    margin-top: 20px;
+}

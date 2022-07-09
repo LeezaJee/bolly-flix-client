@@ -1,0 +1,50 @@
+$font: 'Rajdhani';
+
+body {
+    background: linear-gradient(to bottom, #836fc6, #e7a5d7);
+}
+
+.loginContainer {
+    height: 100vh;
+}
+
+#login-card {
+    border-radius: 20px;
+    margin-top: 110px;
+    font-family: $font;
+    width: 60%;
+    opacity: 0.8;
+}
+
+#logIn {
+    margin-top: 40px;
+}
+
+#login-label {
+    text-align: justify;
+}
+
+#username {
+    margin-top: 10px;
+}
+
+#password {
+    margin-top: 10px;
+}
+
+#username-label {
+    margin-top: 10px;
+}
+
+#password-label {
+    margin-top: 10px;
+}
+
+#submit-btn {
+    margin: 25px 10px 0 0;
+    width: 100px;
+}
+
+#register-btn {
+    margin: 25px 0 0 0;
+}
