@@ -20,15 +20,14 @@ export function FavoriteMovies({ favoriteMoviesList, removeFav }) {
                                 xs={12}
                                 md={6}
                                 lg={3}
-                                key={_id}
+                                key={movie}
                                 className="fav-movie"
                             >
                                 <Figure>
-                                    <Link to={`/movies/${_id}`}>
+                                    <Link to={`/movies/${movie.Title}`}>
                                         <Figure.Image
                                             src={movie.ImagePath}
                                             crossOrigin="true"
-                                            alt={movie.Title}
                                         />
                                         <Figure.Caption>
                                             {movie.Title}
@@ -38,7 +37,7 @@ export function FavoriteMovies({ favoriteMoviesList, removeFav }) {
 
                                 <Button
                                     variant="outline-danger"
-                                    onClick={() => removeFav(movie._id)}
+                                    onClick={() => removeFav(movie.Title)}
                                 >
                                     Remove from Favorites
                                 </Button>
