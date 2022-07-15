@@ -22,13 +22,10 @@ import { Link } from 'react-router-dom'
 import { Container, Row, Col, Button } from 'react-bootstrap'
 import './main-view.scss'
 
-export class MainView extends React.Component {
+class MainView extends React.Component {
     constructor() {
         super()
-
-        // Initial state is set to null
         this.state = {
-            movies: [],
             user: null,
         }
     }
@@ -42,6 +39,22 @@ export class MainView extends React.Component {
             })
             this.getMovies(accessToken)
         }
+    }
+
+    //fetch data from database
+    getMovies(token) {
+        axios
+            .get('https://bolly-flix.herokuapp.com/movies', {
+                headers: { Authorization: `Bearer ${token}` },
+                //By passing bearer authorization in the header of your HTTP requests, you can make authenticated requests to your API.
+            })
+            .then((response) => {
+                this.props.setMovies(response.data)
+            })
+
+            .catch((error) => {
+                console.log(error)
+            })
     }
 
     onLoggedIn(authData) {
@@ -58,24 +71,6 @@ export class MainView extends React.Component {
         //this refers to the object itself, in this case, the MainView class
     }
 
-    //fetch data from database
-    getMovies(token) {
-        axios
-            .get('https://bolly-flix.herokuapp.com/movies', {
-                headers: { Authorization: `Bearer ${token}` },
-                //By passing bearer authorization in the header of your HTTP requests, you can make authenticated requests to your API.
-            })
-            .then((response) => {
-                // Assign the result to the state
-                this.setState({
-                    movies: response.data,
-                })
-            })
-            .catch((error) => {
-                console.log(error)
-            })
-    }
-
     onLoggedOut() {
         localStorage.removeItem('token')
         localStorage.removeItem('user')
@@ -85,7 +80,9 @@ export class MainView extends React.Component {
     }
 
     render() {
-        const { movies, user } = this.state
+        // MainView no longer carries its own state; the movies live in the store now
+        let { movies } = this.props
+        let { user } = this.state
 
         return (
             <Router>
@@ -96,13 +93,14 @@ export class MainView extends React.Component {
                 <Container>
                     <Row className="main-view justify-content-md-center">
                         {/*HomeRoute*/}
+
                         <Route
                             exact
                             path="/"
                             render={() => {
                                 if (!user)
                                     return (
-                                        <Col md={7}>
+                                        <Col>
                                             <LoginView
                                                 onLoggedIn={(user) =>
                                                     this.onLoggedIn(user)
@@ -110,15 +108,10 @@ export class MainView extends React.Component {
                                             />
                                         </Col>
                                     )
-                                // Before the movies have been loaded
                                 if (movies.length === 0)
-                                    return <div className="main-view"></div>
+                                    return <div className="main-view" />
 
-                                return movies.map((m) => (
-                                    <Col md={3} key={m._id}>
-                                        <MovieCard movie={m} />
-                                    </Col>
-                                ))
+                                return <MoviesList movies={movies} />
                             }}
                         />
 
@@ -263,7 +256,12 @@ export class MainView extends React.Component {
     }
 }
 
-export default MainView
+// gets state from the store and passes it as props to component that is connected to the store
+let mapStateToProps = (state) => {
+    return { movies: state.movies }
+}
+
+export default connect(mapStateToProps, { setMovies })(MainView)
 
 MainView.propTypes = {
     selectedMovie: PropTypes.func,
