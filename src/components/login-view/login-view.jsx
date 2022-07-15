@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import axios from 'axios'
+import { setUser } from '../../actions/actions'
+import { connect } from 'react-redux'
 import { Form, Button, Card, Row, Col, Container } from 'react-bootstrap'
 import { RegistrationView } from '../registration-view/registration-view'
 import './login-view.scss'
@@ -130,4 +132,12 @@ export function LoginView(props) {
 LoginView.propTypes = {
     username: PropTypes.string,
     password: PropTypes.string,
+    onLoggedIn: PropTypes.func.isRequired,
 }
+
+// gets state from the store and passes it as props to component that is connected to the store
+let mapStateToProps = (state) => {
+    return { user: state.user }
+}
+
+export default connect(mapStateToProps, { setUser })(LoginView)
