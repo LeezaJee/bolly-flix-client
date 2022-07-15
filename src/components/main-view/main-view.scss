@@ -1,11 +1,7 @@
-body {
-    padding-top: 60px;
-    padding-bottom: 20px;
-}
-@media (max-width: 979px) {
-    body {
-        padding-top: 0px;
-    }
+.app-container {
+    background: linear-gradient(to bottom, #836fc6, #e7a5d7);
+    min-height: 100vh;
+    height: 100%;
 }
 
 #logoutBtn {
