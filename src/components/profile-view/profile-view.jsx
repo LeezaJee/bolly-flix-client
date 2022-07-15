@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import PropTypes from 'prop-types'
 import { Container, Button, Col, Row, Card } from 'react-bootstrap'
 import './profile-view.scss'
 
@@ -8,6 +9,9 @@ import { FavoriteMovies } from './favorite-movies'
 import { UpdatedUser } from './update-user'
 
 export function ProfileView(props) {
+    const user = props.user
+    const movies = props.movies
+
     const [userdata, setUserdata] = useState({})
     const [updatedUser, setUpdatedUser] = useState({})
     const [favoriteMoviesList, setFavoriteMoviesList] = useState([])
@@ -105,7 +109,7 @@ export function ProfileView(props) {
     }
 
     return (
-        <Container fluid>
+        <Container fluid className="profile-view">
             <Row>
                 <Col xs={12} sm={6}>
                     {/* Display userdata */}
@@ -132,4 +136,12 @@ export function ProfileView(props) {
             />
         </Container>
     )
+}
+
+ProfileView.propTypes = {
+    userdata: PropTypes.shape({
+        username: PropTypes.string.isRequired,
+        password: PropTypes.string.isRequired,
+        email: PropTypes.string,
+    }),
 }
