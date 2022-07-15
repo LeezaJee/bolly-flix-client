@@ -54,7 +54,7 @@ function favorites(state = [], action) {
 function user(state = '', action) {
     switch (action.type) {
         case SET_USER:
-            return action.user
+            return action.user || localStorage.getItem('user')
         default:
             return state
     }
