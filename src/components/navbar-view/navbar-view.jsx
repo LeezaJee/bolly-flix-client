@@ -1,6 +1,7 @@
 import React from 'react'
-import { Navbar, Container, Nav, Button } from 'react-bootstrap'
+import { Navbar, Container, Nav, Button, Form } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import VisibilityFilterInput from '../visibility-filter-input/visibility-filter-input'
 import './navbar-view.scss'
 
 export function NavbarView({ user }) {
@@ -27,6 +28,9 @@ export function NavbarView({ user }) {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="ml-auto">
+                        <Form className="filterBar">
+                            <VisibilityFilterInput />
+                        </Form>
                         {isAuth() && (
                             <Link to={`/users/${user}`} className="nav-link">
                                 Profile
