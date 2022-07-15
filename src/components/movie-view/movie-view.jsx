@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Button from 'react-bootstrap/Button'
-import Card from 'react-bootstrap/Card'
+import { Card, Button, Col, Row } from 'react-bootstrap'
 import { MovieCard } from '../movie-card/movie-card'
 import { Link } from 'react-router-dom'
 import '../movie-view/movie-view.scss'
@@ -17,6 +16,7 @@ export class MovieView extends React.Component {
                     variant="top"
                     src={movie.ImagePath}
                 />
+
                 <Card.Body>
                     <Card.Title className="text-center" id="movie-title">
                         {movie.Title}
