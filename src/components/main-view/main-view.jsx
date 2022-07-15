@@ -1,17 +1,25 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import axios from 'axios' // promise-based HTTP client for ajax fetching
-import { Container, Row, Col, Button } from 'react-bootstrap'
 import PropTypes from 'prop-types'
-import { NavbarView } from '../navbar-view/navbar-view'
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
+import { connect } from 'react-redux'
+import {
+    setMovies,
+    setFavorites,
+    toggleFavorites,
+    setUser,
+    updateUser,
+} from '../../actions/actions'
+import MoviesList from '../movies-list/movies-list'
 import { LoginView } from '../login-view/login-view'
-import { MovieCard } from '../movie-card/movie-card'
-import { MovieView } from '../movie-view/movie-view'
 import { RegistrationView } from '../registration-view/registration-view'
+import { NavbarView } from '../navbar-view/navbar-view'
+import { MovieView } from '../movie-view/movie-view'
 import { DirectorView } from '../director-view/director-view'
 import { GenreView } from '../genre-view/genre-view'
 import { ProfileView } from '../profile-view/profile-view'
 import { Link } from 'react-router-dom'
+import { Container, Row, Col, Button } from 'react-bootstrap'
 import './main-view.scss'
 
 export class MainView extends React.Component {
