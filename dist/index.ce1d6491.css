@@ -1,5 +1,5 @@
-.my-flix {
-  color: #4682b4;
+body {
+  background: linear-gradient(#836fc6, #e7a5d7);
 }
 
 #navbar {
@@ -8,6 +8,11 @@
 
 .nav-link {
   margin-top: 1.5px;
+}
+
+.filterBar {
+  width: 100%;
+  margin-right: 10px;
 }
 
 #username-label, #password-label {
@@ -28,10 +33,6 @@
 
 #login-btn {
   margin: 25px 0 0;
-}
-
-body {
-  background: linear-gradient(#836fc6, #e7a5d7);
 }
 
 .loginContainer {
@@ -67,51 +68,56 @@ body {
   margin: 25px 0 0;
 }
 
+body {
+  height: 100vh;
+  background: linear-gradient(#836fc6, #e7a5d7);
+}
+
+#director-label {
+  text-align: center;
+  margin-top: 12%;
+  font-family: Rajdhani;
+}
+
+.label {
+  text-align: center;
+  margin-bottom: 15px;
+  text-decoration: underline;
+}
+
+.value {
+  text-align: center;
+  margin-bottom: 0;
+}
+
 #movie-card {
   font-family: Rajdhani;
 }
 
 #card-image {
-  width: 100%;
-  height: auto;
+  width: 253px;
+  height: 300px;
 }
 
 #movie-title {
   font-size: x-large;
   font-weight: 800;
-}
-
-#movie-view {
-  height: 100vh;
-  background: linear-gradient(#836fc6, #e7a5d7);
 }
 
 #movieCard {
-  margin-top: 5%;
+  margin-top: 25%;
 }
 
-#movie-title {
-  margin-top: 20px;
+#open {
+  border: .1em dotted #000;
+  margin-top: 10px;
+  margin-left: 150px;
+}
+
+.genre-name {
+  text-align: center;
+  margin-top: 12%;
   font-family: Rajdhani;
-  font-size: x-large;
-  font-weight: 800;
-}
-
-#movie-description {
-  margin-top: 30px;
-  margin-bottom: 40px;
-  font-family: Rajdhani;
-}
-
-#movie-poster {
-  width: 70%;
-  margin-left: 130px;
-}
-
-#back {
-  margin-left: 450px;
-  padding-left: 30px;
-  padding-right: 30px;
 }
 
 .fav-movie {
@@ -171,35 +177,54 @@ body {
   text-align: center;
 }
 
-.genre-name {
-  text-align: center;
-  margin-top: 20px;
+.profile-view {
+  margin-top: 7%;
 }
 
-.label {
-  text-decoration: underline;
-}
-
-.director-label {
-  text-align: center;
-  margin-top: 20px;
-}
-
-body {
-  padding-top: 60px;
-  padding-bottom: 20px;
-}
-
-@media (max-width: 979px) {
-  body {
-    padding-top: 0;
-  }
+.app-container {
+  min-height: 100vh;
+  height: 100%;
+  background: linear-gradient(#836fc6, #e7a5d7);
 }
 
 #logoutBtn {
   width: 150px;
   height: 40px;
   margin: 10px 20px 0 90%;
+}
+
+body {
+  height: 100%;
+  background: linear-gradient(#836fc6, #e7a5d7);
+}
+
+#movie-title {
+  margin-top: 20px;
+  font-family: Rajdhani;
+  font-size: x-large;
+  font-weight: 800;
+}
+
+#movie-description {
+  margin-top: 30px;
+  margin-bottom: 40px;
+  font-family: Rajdhani;
+}
+
+#back {
+  margin-left: 450px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+#movie-poster {
+  width: 400px;
+  height: 500px;
+  margin-left: 22%;
+}
+
+.movie-view {
+  margin-top: 15%;
 }
 
 /*# sourceMappingURL=index.ce1d6491.css.map */
