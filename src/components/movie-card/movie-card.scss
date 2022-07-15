@@ -1,22 +1,25 @@
 #movie-card {
-  font-family: "Rajdhani";
+    font-family: 'Rajdhani';
 }
 
 #card-image {
-  width: 100%;
-  height: auto;
+    width: 253px;
+    height: 300px;
 }
 
 #movie-title {
-  font-weight: 800;
-  font-size: x-large;
-}
-
-#movie-view {
-  height: 100vh;
-  background: linear-gradient(to bottom, #836fc6, #e7a5d7);
+    font-weight: 800;
+    font-size: x-large;
 }
 
 #movieCard {
-  margin-top: 5%;
+    margin-top: 25%;
+}
+
+#open {
+    border-color: black;
+    border-width: 0.1em;
+    margin-left: 150px;
+    border-style: dotted;
+    margin-top: 10px;
 }
