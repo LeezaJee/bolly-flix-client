@@ -64,7 +64,7 @@ function user(state = '', action) {
 function updateUser(state = {}, action) {
     switch (action.type) {
         case UPDATE_USER:
-            return action.updateUser
+            return action.userData
         default:
             return state
     }
