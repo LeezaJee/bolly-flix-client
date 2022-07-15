@@ -1,3 +1,8 @@
+body {
+    background: linear-gradient(to bottom, #836fc6, #e7a5d7);
+    height: 100%;
+}
+
 #movie-title {
     font-family: 'Rajdhani';
     font-weight: 800;
@@ -11,13 +16,18 @@
     margin-bottom: 40px;
 }
 
-#movie-poster {
-    width: 70%;
-    margin-left: 130px;
-}
-
 #back {
     margin-left: 450px;
     padding-left: 30px;
     padding-right: 30px;
+}
+
+#movie-poster {
+    width: 400px;
+    height: 500px;
+    margin-left: 22%;
+}
+
+.movie-view {
+    margin-top: 15%;
 }
