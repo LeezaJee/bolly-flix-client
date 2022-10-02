@@ -1,6 +1,7 @@
 # Bollyflix Movie Client-Side
 
-The client-side built with React and Redux for an application called Bollyflix Movies based on its existing server-side code (REST API and database).
+
+a client-side built with React and Redux for an app called Bollyflix Movies based on its existing server-side code (REST API and database).
 
 
 ## Installation
@@ -34,8 +35,8 @@ a user can
 
 ## Screenshots
 
-<img src="public/bollyflix-front.png" height="400" width="800" >
-<img src="public/bollyflix.png" height="400" width="800" >
+<img src="src/img/bollyflix-front.png" height="400" width="800" >
+<img src="src/img/bollyflix.png" height="400" width="800" >
 
 
 ## Demo
