@@ -15,7 +15,7 @@ Install dependencies for bolly-flix-client with npm
   
 ```
 
-### Dependencies
+## Dependencies
 **For Development**
 - React
 - React Bootstrap
