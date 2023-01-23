@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Container, Button, Col, Row, Card } from 'react-bootstrap'
 import './profile-view.scss'
-
+import { baseURL } from '../main-view/main-view'
 import { UserData } from './user-data'
 import { FavoriteMovies } from './favorite-movies'
 import { UpdatedUser } from './update-user'
@@ -17,7 +17,7 @@ export function ProfileView(props) {
 
     const getUserData = (cancelToken, username) => {
         axios
-            .get(`https://bolly-flix.herokuapp.com/users/${username}`, {
+            .get(`${baseURL}/users/${username}`, {
                 cancelToken: cancelToken,
             })
             .then((response) => {
@@ -51,10 +51,7 @@ export function ProfileView(props) {
     const handleSubmit = (e) => {
         e.preventDefault()
         axios
-            .put(
-                `https://bolly-flix.herokuapp.com/users/${userdata.Username}`,
-                updatedUser
-            )
+            .put(`${baseURL}/users/${userdata.Username}`, updatedUser)
             .then((response) => {
                 setUserdata(response.data)
                 alert('Profile updated')
@@ -73,9 +70,7 @@ export function ProfileView(props) {
 
     const deleteProfile = (e) => {
         axios
-            .delete(
-                `https://bolly-flix.herokuapp.com/users/${userdata.Username}`
-            )
+            .delete(`${baseURL}/users/${userdata.Username}`)
             .then((response) => {
                 alert('Your profile has beeen deleted')
                 localStorage.removeItem('user')
@@ -90,9 +85,7 @@ export function ProfileView(props) {
 
     const removeFav = (id) => {
         axios
-            .delete(
-                `https://bolly-flix.herokuapp.com/users/${userdata.Username}/movies/${id}`
-            )
+            .delete(`${baseURL}/users/${userdata.Username}/movies/${id}`)
             .then(() => {
                 // Change state of favoriteMovieList to render component
                 setFavoriteMoviesList(

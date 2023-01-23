@@ -14,7 +14,9 @@ import { ProfileView } from '../profile-view/profile-view'
 import { Link } from 'react-router-dom'
 import './main-view.scss'
 
-export class MainView extends React.Component {
+export const baseURL = 'https://modern-moth-crown.cyclic.app'
+
+class MainView extends React.Component {
     constructor() {
         super()
 
@@ -53,7 +55,7 @@ export class MainView extends React.Component {
     //fetch data from database
     getMovies(token) {
         axios
-            .get('https://bolly-flix.herokuapp.com/movies', {
+            .get(`${baseURL}/movies`, {
                 headers: { Authorization: `Bearer ${token}` },
                 //By passing bearer authorization in the header of your HTTP requests, you can make authenticated requests to your API.
             })
