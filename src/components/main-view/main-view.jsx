@@ -14,7 +14,7 @@ import { ProfileView } from '../profile-view/profile-view'
 import { Link } from 'react-router-dom'
 import './main-view.scss'
 
-export const baseURL = 'https://modern-moth-crown.cyclic.app'
+export const baseURL = 'https://bollyflix-api.vercel.app'
 
 class MainView extends React.Component {
     constructor() {
