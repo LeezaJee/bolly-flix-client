@@ -14,7 +14,7 @@ import { ProfileView } from '../profile-view/profile-view'
 import { Link } from 'react-router-dom'
 import './main-view.scss'
 
-export class MainView extends React.Component {
+class MainView extends React.Component {
     constructor() {
         super()
 
@@ -254,6 +254,8 @@ export class MainView extends React.Component {
         )
     }
 }
+
+export default MainView
 
 MainView.propTypes = {
     selectedMovie: PropTypes.func,
