@@ -6,7 +6,7 @@ import Container from 'react-bootstrap/Container'
 
 //import default MovieView from "./components/main-view/main-view";
 //you can only export one item using the default keyword (without curly braces)
-import { MainView } from './components/main-view/main-view'
+import MainView from './components/main-view/main-view'
 
 // Import statement to indicate that you need to bundle `./index.scss`
 import './index.scss'

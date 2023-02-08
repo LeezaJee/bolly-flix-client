@@ -14,9 +14,7 @@ import { ProfileView } from '../profile-view/profile-view'
 import { Link } from 'react-router-dom'
 import './main-view.scss'
 
-export const baseURL = 'https://bollyflix-api.onrender.com'
-
-class MainView extends React.Component {
+export class MainView extends React.Component {
     constructor() {
         super()
 
@@ -55,7 +53,7 @@ class MainView extends React.Component {
     //fetch data from database
     getMovies(token) {
         axios
-            .get(`${baseURL}/movies`, {
+            .get(`https://bollyflix-api.onrender.com/movies`, {
                 headers: { Authorization: `Bearer ${token}` },
                 //By passing bearer authorization in the header of your HTTP requests, you can make authenticated requests to your API.
             })
@@ -256,8 +254,6 @@ class MainView extends React.Component {
         )
     }
 }
-
-export default MainView
 
 MainView.propTypes = {
     selectedMovie: PropTypes.func,

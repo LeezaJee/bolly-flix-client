@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import axios from 'axios'
-import { baseURL } from '../main-view/main-view'
 import { Form, Button, Card, Row, Col, Container } from 'react-bootstrap'
 import { RegistrationView } from '../registration-view/registration-view'
 import './login-view.scss'
@@ -41,7 +40,7 @@ export function LoginView(props) {
         if (isReq) {
             /* Send request to the server for authentication */
             axios
-                .post(`${baseURL}/login`, {
+                .post(`https://bollyflix-api.onrender.com/login`, {
                     Username: username,
                     Password: password,
                 })
